@@ -1,0 +1,2 @@
+module SelectSearchesHelper
+end
