@@ -1,8 +1,23 @@
 h1
   | Main#index
+/= form_for @register, :url => {:controller => :main, :action => :create}, method: :post do |f|
+/  - category_list = @categories.map{|category| [category.name, category.name]}
+/  - item_list = @items.map{|item| [item.name, item.name]}
+/  = f.select :category_name, category_list
+/  = f.select :item_name, item_list
+/  = f.submit '登録'
+
 = form_for @register, :url => {:controller => :main, :action => :create}, method: :post do |f|
-  - category_list = @categories.map{|category| [category.name, category.name]}
-  - item_list = @items.map{|item| [item.name, item.name]}
-  = f.select :category_name, category_list
-  = f.select :item_name, item_list
+  - categories = @categories.map{|category| {id: category.id, name: category.name}}.to_json
+  - items = @items.map{|item| {id: item.id, name: item.name}}.to_json
+
+  javascript:
+    window.__app__ = {};
+    window.__app__.categories = #{raw categories};
+    window.__app__.items = #{raw items};
+
+  div#js-select-app
   = f.submit '登録'
+
+
+= javascript_pack_tag 'main/index'

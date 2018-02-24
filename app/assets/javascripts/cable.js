@@ -6,8 +6,8 @@
 //= require_tree ./channels
 
 (function() {
-  this.App || (this.App = {});
+  this.FormSelector || (this.App = {});
 
-  App.cable = ActionCable.createConsumer();
+  FormSelector.cable = ActionCable.createConsumer();
 
 }).call(this);
