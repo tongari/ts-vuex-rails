@@ -1,0 +1,8 @@
+h1
+  | Main#index
+= form_for @register, :url => {:controller => :main, :action => :create}, method: :post do |f|
+  - category_list = @categories.map{|category| [category.name, category.name]}
+  - item_list = @items.map{|item| [item.name, item.name]}
+  = f.select :category_name, category_list
+  = f.select :item_name, item_list
+  = f.submit '登録'
