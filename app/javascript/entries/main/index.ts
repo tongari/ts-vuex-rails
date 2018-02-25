@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import store from '../../modules/stores/entry/index'
+import store from '../../modules/stores/entries/index'
 import FormSelectorContainer from '../../modules/containers/FormSelectorContainer.vue'
 
 new Vue({

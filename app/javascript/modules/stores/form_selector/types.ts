@@ -12,5 +12,9 @@ export interface Item {
 export interface SelectState {
   categories?: Category[]
   items?: Item[]
+  isFetching: boolean
+  isError: boolean
+  categoryId?: number
+  itemId?: number
 }
 

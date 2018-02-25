@@ -2,7 +2,7 @@ class MainController < ApplicationController
   def index
     @register = Register.new
     @categories = Category.all
-    @items = Item.all
+    @items = Item.where(category_id: 1)
   end
 
   def create

@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex, { StoreOptions } from 'vuex'
-import { RootState } from '../types'
+import { RootState } from '../rootTypes'
 import { select } from '../form_selector/index'
 
 Vue.use(Vuex)
