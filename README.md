@@ -177,5 +177,3 @@ declare module "*.vue" {
   export default typeof Vue
 }
 ```
-
-
