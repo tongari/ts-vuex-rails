@@ -7,6 +7,8 @@
       :onFetchItems="onFetchItems",
       :onSetCategoryId="onSetCategoryId",
       :onSetItemId="onSetItemId",
+      :getCategoryName="getCategoryName",
+      :getItemName="getItemName",
     )
 </template>
 
@@ -18,6 +20,7 @@
 
   import { SelectState } from '../stores/form_selector/types'
   import { SET_CATEGORIES, SET_ITEMS, FETCH_ITEMS, SET_CATEGORY_ID, SET_ITEM_ID } from '../stores/form_selector/actions'
+  import { GET_CATEGORY_NAME, GET_ITEM_NAME } from '../stores/form_selector/getters'
   import FormSelector from '../components/form_selector/FormSelector.vue'
 
   // storeの名前空間を指定する
@@ -39,6 +42,9 @@
     @Action(FETCH_ITEMS, { namespace: selectNamespace }) onFetchItems: any
     @Action(SET_CATEGORY_ID, { namespace: selectNamespace }) onSetCategoryId: any
     @Action(SET_ITEM_ID, { namespace: selectNamespace }) onSetItemId: any
+    // getterをバイディング
+    @Getter(GET_CATEGORY_NAME, { namespace: selectNamespace }) getCategoryName: string
+    @Getter(GET_ITEM_NAME, { namespace: selectNamespace }) getItemName: string
 
     created() {
       //slimから渡されたjsonをstateにセット

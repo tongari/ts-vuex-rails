@@ -19,7 +19,7 @@ const namespaced: boolean = true
 export const select: Module<SelectState, RootState> = {
   namespaced,
   state,
-  // getters, // 小規模ならいらない。コンポートで作成して良い気がします。
+  getters,
   actions,
   mutations
 }

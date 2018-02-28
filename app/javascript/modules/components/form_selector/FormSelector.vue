@@ -24,6 +24,8 @@ import { SelectState, Category, Item } from '../../stores/form_selector/types'
     onFetchItems: Function,
     onSetCategoryId: Function,
     onSetItemId: Function,
+    getCategoryName: String,
+    getItemName: String,
   }
 })
 export default class FormSelector extends Vue {
@@ -50,46 +52,6 @@ export default class FormSelector extends Vue {
    */
   private onChangeItemSelect(event: HTMLSelectElement):void {
     this.$props.onSetItemId(Number(event.target.value))
-  }
-
-  private findNameById(elements, searchIndex: number): string{
-    for(let i: number = 0; i < elements.length; i++){
-      if (elements[i].id === searchIndex) {
-        return elements[i].name
-      }
-    }
-    return elements[0].name
-// Observable型をキャストする方法がわからない
-//    return elements.find((element) => {
-//      if (element.id === searchIndex) {
-//        return element.name
-//      }
-//      return elements[0].name
-//    })
-  }
-
-  /**
-   * カテゴリ名を返す
-   * @returns {string}
-   */
-  private get getCategoryName(): string {
-    const name: string = this.findNameById(
-      this.$props.selectState.categories,
-      this.$props.selectState.categoryId
-    )
-    return name
-  }
-
-  /**
-   * アイテム名を返す
-   * @returns {string}
-   */
-  private get getItemName(): string {
-    const name: string = this.findNameById(
-      this.$props.selectState.items,
-      this.$props.selectState.itemId
-    )
-    return name
   }
 }
 </script>
